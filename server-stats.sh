@@ -14,10 +14,18 @@ cpu_usage() {
 
 # Function for Memory usage
 memory_usage() {
-    echo "=== Memory Usage (MB) ==="
+    echo "=== Memory Usage ==="
     # Use free -m for simplicity; print used and total
+    #Gives All the memory usage, by Mem and by Sawp
+    # Only getting the memory row
+    #Printf for formatting, .2f for 2 digits after the comma, %% Adding percentage sign, $COLUMN
+
     free -m \
-      | awk 'NR==2 { printf "Used: %sMB / %sMB (%.1f%%)\n", $3, $2, $3/$2*100 }'
+	    | grep Mem \
+	    | awk '{printf "%.2f%% Free memory utilized\n",($4/$2)*100}'
+    free -m \
+	    | grep Mem \
+	    | awk '{printf "%.2f%% Used memory utilized\n",($3/$2)*100}'
 }
 
 echo "Starting performance stats collection"
