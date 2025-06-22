@@ -1,6 +1,6 @@
 # Server Performance Stats
 
-**Server Performance Stats** project from [roadmap.sh](https://roadmap.sh/projects/server-stats). 
+**Server Performance Stats** project from <a href="https://roadmap.sh/projects/server-stats" target="_blank" rel="noopener noreferrer">roadmap.sh</a>.
 
 ## Usage
 1. Clone or download the script `server-stats.sh`
