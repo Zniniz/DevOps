@@ -69,6 +69,55 @@ top5_memory() {
     echo "###########################################################"
 }
 
+# Function for os version
+os_version() {
+   echo ""
+   echo "=== OS Version ==="
+   echo ""
+   uname -a
+   echo ""
+   echo "###########################################################"
+
+}
+
+# Function for uptime
+uptime_load() {
+   echo ""
+   echo "=== Uptime ==="
+   echo ""
+   uptime -p
+   echo ""
+   echo "###########################################################"
+
+}
+# Function for logged in attempts
+logged_in() {
+   echo ""
+   echo "=== Logged in Users: ==="
+   echo ""
+   who
+   echo ""
+   echo "###########################################################"
+
+}
+
+# Function for failed logins
+failed_logins() {
+   echo ""
+   echo "=== Failed logins ==="
+   echo ""
+   if [ -x "$(command -v lastb)" ]; then
+     sudo lastb | head -10
+   else
+     echo "Command 'lastb' not found or not executable."
+   fi
+   echo ""
+   echo "###########################################################"
+
+}
+
+
+
 echo ""
 echo "Starting performance stats collection..."
 echo ""
@@ -77,6 +126,10 @@ memory_usage
 disk_usage
 top5_cpu
 top5_memory
+os_version
+uptime_load
+logged_in
+failed_logins
 echo ""
 echo "Collection Complete..."
 echo ""
